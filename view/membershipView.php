@@ -34,6 +34,8 @@
             <a href="#"><i class="fas fa-shopping-bag"></i></a>
         </div>
     </div>
+
+    <!-- Hạng thành viên -->
     <div class="max-w-7xl mx-auto p-6">
         <section class="text-center py-10">
             <h2 class="text-3xl font-bold mb-4">Hạng thành viên</h2>
@@ -59,6 +61,7 @@
             </div>
         </section>
         
+        <!-- tham gia -->
         <section class="text-center py-10 bg-gray-50">
             <h2 class="text-3xl font-bold mb-4">Tham gia dễ dàng</h2>
             <p class="text-gray-600 mb-6">Nhận quà tặng độc quyền bằng cách tham gia chương trình đổi điểm thưởng của Levents!</p>
@@ -81,6 +84,7 @@
             </div>
         </section>
 
+        <!-- tích điểm -->
         <section class="text-center py-10">
             <h2 class="text-3xl font-bold mb-4">Hoạt động tích điểm</h2>
             <p class="text-gray-600 mb-6">Hoàn thành các hoạt động khác nhau để tích điểm và biến số điểm đó thành phần thưởng đặc biệt.</p>
@@ -101,9 +105,25 @@
                     <h3 class="text-lg font-semibold">Tích điểm trên đơn hàng</h3>
                     <p class="text-sm text-gray-500">1 điểm = 1.000đ</p>
                 </div>
+                <div class="p-6 border rounded-lg shadow bg-white">
+                    <i class="fa-brands fa-instagram text-3xl mb-4"></i>
+                    <h3 class="text-lg font-semibold">Tích điểm trên đơn hàng</h3>
+                    <p class="text-sm text-gray-500">1 điểm = 1.000đ</p>
+                </div>
+                <div class="p-6 border rounded-lg shadow bg-white">
+                    <i class="fa-brands fa-youtube text-3xl mb-4"></i>
+                    <h3 class="text-lg font-semibold">Tích điểm trên đơn hàng</h3>
+                    <p class="text-sm text-gray-500">1 điểm = 1.000đ</p>
+                </div>
+                <div class="p-6 border rounded-lg shadow bg-white">
+                    <i class="fas fa-birthday-cake text-3xl mb-4"></i>
+                    <h3 class="text-lg font-semibold">Tích điểm trên đơn hàng</h3>
+                    <p class="text-sm text-gray-500">1 điểm = 1.000đ</p>
+                </div>
             </div>
         </section>
         
+        <!-- đổi điểm -->
         <section class="text-center py-10 bg-gray-50">
             <h2 class="text-3xl font-bold mb-4">Đổi điểm nhận quà</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -111,6 +131,36 @@
                 <div class="p-6 border rounded-lg shadow bg-white">Voucher 50k</div>
                 <div class="p-6 border rounded-lg shadow bg-white">Voucher 100k</div>
                 <div class="p-6 border rounded-lg shadow bg-white">Voucher 200k</div>
+            </div>
+        </section>
+
+
+        <!-- Đổi điểm -->
+        <section class="text-center py-10 bg-gray-50">
+            <h2 class="text-3xl font-bold mb-4">Đổi điểm nhận quà</h2>
+            <p class="text-gray-600 mb-6">Sử dụng điểm thưởng hiện có của bạn để đổi các phần thưởng.</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <?php
+                    $vouchers = [
+                        "Voucher 30K đơn 0đ" => "5.000 điểm",
+                        "Voucher 50K đơn 0đ" => "10.000 điểm",
+                        "Voucher 100K đơn 350K" => "20.000 điểm",
+                        "Voucher 150K đơn 500K" => "30.000 điểm",
+                        "Voucher 200K đơn 500K" => "40.000 điểm",
+                        "Voucher 300K đơn 500K" => "50.000 điểm",
+                        "Voucher 500K đơn 700K" => "90.000 điểm",
+                        "Voucher 700K đơn 1 Triệu" => "110.000 điểm",
+                        "Voucher 1 Triệu đơn 0đ" => "150.000 điểm"
+                    ];
+                    foreach ($vouchers as $voucher => $points) {
+                        echo '<div class="p-6 border rounded-lg shadow bg-white text-center">';
+                        echo '<i class="fas fa-ticket-alt text-3xl mb-4"></i>';
+                        echo '<h3 class="font-semibold">' . $voucher . '</h3>';
+                        echo '<p class="text-sm text-gray-500">' . $points . '</p>';
+                        echo '<button class="mt-2 bg-black text-white py-1 px-4 rounded">Đổi</button>';
+                        echo '</div>';
+                    }
+                ?>
             </div>
         </section>
     </div>

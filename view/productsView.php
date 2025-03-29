@@ -1,5 +1,4 @@
 <?php
-// Bạn có thể thêm logic PHP ở đây nếu cần (ví dụ: lấy dữ liệu từ database)
 ?>
 
 <!DOCTYPE html>
