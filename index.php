@@ -1,16 +1,34 @@
+<?php
+$gallery_items = [
+    [
+        'img' => 'https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/483553875_1224983775853436_414039348983678511_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEzCcGiftcbXT-sDK7CIZLQLoSWBOHy6O4uhJYE4fLo7r7isQRvDYJABnf1aARtQvAQhTHyzs3VZlB3xFFzdSB7&_nc_ohc=eT59Okan7KwQ7kNvgEtuXUx&_nc_oc=AdnaZVcL9XvxN_EOzp_ZCwcLJWMxch-yWAzvrGy7aNx6kWm33espp7-6lKP2WNAsPdk&_nc_zt=23&_nc_ht=scontent.fhan3-3.fna&_nc_gid=KPDjP6nreKB1fBno5_HuOQ&oh=00_AYELiano3XduFjQa9_4d7AucQkwuzBbWpeZooR_NjM1yKQ&oe=67E44D94',
+        'label' => 'NAM'
+    ],
+    [
+        'img' => 'https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/482010653_1222121486139665_7291076799455765546_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE0zdkg8fJ8pE5KWbLr0xjtJMUksAs7gDokxSSwCzuAOkIz6VLfG90dETMJgxzEziGDoLSXSd32MjRKJk7kxzja&_nc_ohc=yJyUUZLZs54Q7kNvgHicIpg&_nc_oc=Adnn6oQnsS1gR4nDkHFzqdxN9Ob_Dn1s5KOdUOC0bRwx82oCZb3OU9hKAJ6U-StP_w8&_nc_zt=23&_nc_ht=scontent.fhan3-3.fna&_nc_gid=lkrqCiYgQ5ToFa_tAe2eqg&oh=00_AYH8lziDUSDHw5UhmhlgO-XxFEggePVoD65Gg0YESwaigg&oe=67E4272E',
+        'label' => 'NỮ'
+    ],
+    [
+        'img' => 'https://dtcralphlauren.scene7.com/is/image/PoloGSI/s7-AI322702300026_alternate10?$plpDeskRF$',
+        'label' => 'TRẺ EM'
+    ]
+];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elevents</title>
-    <link rel="stylesheet" href="./public/css/index.css">
+    <link rel="stylesheet" href="../public/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Full-screen video section -->
+    
     <div class="hero-section">
-        <!-- YouTube iframe as background -->
+     
         <iframe
             class="hero-video"
             src="https://www.youtube.com/embed/VzqD588-uQU?si=bHPy8TSqpWkNHv37&autoplay=1&loop=1&controls=0&mute=1&playlist=VzqD588-uQU&iv_load_policy=3&modestbranding=1&start=2"
@@ -31,7 +49,6 @@
                     <p>INTRODUCING SPRING 2025: ELEVENTS’ HORIZON | <a href="#">KHÁM PHÁ</a></p>
                     <div class="top-bar-right">
                         <a href="#">VI | VIETNAM</a>
-                        
                     </div>
                 </div>
                 <div class="main-nav">
@@ -40,8 +57,8 @@
                     </div>
 
                     <ul class="menu">
-                        <li><a href="/index.html">TRANG CHỦ</a></li>
-                        <li><a href="/bst_men.html">NAM</a></li>
+                        <li><a href="/index.php">TRANG CHỦ</a></li>
+                        <li><a href="#">Nam</a></li>
                         <li><a href="#">NỮ</a></li>
                         <li><a href="#">TRẺ EM</a></li>
                         <li><a href="#">KHÁM PHÁ</a></li>
@@ -76,7 +93,7 @@
 
     <!-- Gallery section -->
     <section class="gallery">
-              <div class="gallery-item">
+        <div class="gallery-item">
             <img src="https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/483553875_1224983775853436_414039348983678511_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEzCcGiftcbXT-sDK7CIZLQLoSWBOHy6O4uhJYE4fLo7r7isQRvDYJABnf1aARtQvAQhTHyzs3VZlB3xFFzdSB7&_nc_ohc=eT59Okan7KwQ7kNvgEtuXUx&_nc_oc=AdnaZVcL9XvxN_EOzp_ZCwcLJWMxch-yWAzvrGy7aNx6kWm33espp7-6lKP2WNAsPdk&_nc_zt=23&_nc_ht=scontent.fhan3-3.fna&_nc_gid=KPDjP6nreKB1fBno5_HuOQ&oh=00_AYELiano3XduFjQa9_4d7AucQkwuzBbWpeZooR_NjM1yKQ&oe=67E44D94" alt="Gallery Image 2">
             <a href="#" class="gallery-btn">NAM</a>
         </div>
@@ -92,7 +109,6 @@
 
     <!-- Collection section -->
     <section class="collection">
-        
         <img src="https://www.ralphlauren.com/on/demandware.static/-/Library-Sites-RalphLauren_NA_Library/en_US/v1742551874316/img/202502/20250211-m-tournament-looks-golf-mb/0211_m_polo_golf_mb_dsk.jpg" alt="Collection Image">
         <div class="collection-content">
             <h3>ELEVENTS SPORTS</h3>
@@ -103,48 +119,48 @@
         </div>
     </section>
 
-   <!-- Purple Label section with slider -->
-   <section class="purple-label">
-    <div class="purple-label-content">
-        <h3>THẾ GIỚI</h3>
-        <h1>SANG TRỌNG</h1>
-        <p>Khám phá các bộ sưu tập, tác phẩm mang tính biểu tượng và nhiều hơn thế nữa.</p>
-        <h4>ELEVENTS</h4>
-    </div>
-    <div class="purple-label-slider">
-        <div class="slider-container">
-            <div class="slider-track">
-                <div class="slider-item">
-                    <img src="https://pbs.twimg.com/media/FM3RSwYXIAQXjfQ?format=jpg&name=4096x4096" alt="Slider Image 1">
-                    <p class="category-label">BỘ SƯU TẬP</p>
-                </div>
-                <div class="slider-item">
-                    <img src="https://i.pinimg.com/736x/cc/bb/4c/ccbb4c1b837f91062deb89dd6e4a01e1.jpg" alt="Slider Image 2">
-                    <p class="category-label">NAM</p>
-                </div>
-                <div class="slider-item">
-                    <img src="https://i.pinimg.com/736x/75/c1/29/75c1294cb47de39ed39f4368100b1790.jpg" alt="Slider Image 3">
-                    <p class="category-label">NỮ</p>
-                </div>
-                <!-- Duplicate items for infinite loop effect -->
-                <div class="slider-item">
-                    <img src="https://pbs.twimg.com/media/FM3RSwYXIAQXjfQ?format=jpg&name=4096x4096" alt="Slider Image 1">
-                    <p class="category-label">BỘ SƯU TẬP</p>
-                </div>
-                <div class="slider-item">
-                    <img src="https://i.pinimg.com/736x/cc/bb/4c/ccbb4c1b837f91062deb89dd6e4a01e1.jpg" alt="Slider Image 2">
-                    <p class="category-label">NAM</p>
-                </div>
-                <div class="slider-item">
-                    <img src="https://i.pinimg.com/736x/75/c1/29/75c1294cb47de39ed39f4368100b1790.jpg" alt="Slider Image 3">
-                    <p class="category-label">NỮ</p>
+    <!-- Purple Label section -->
+    <section class="purple-label">
+        <div class="purple-label-content">
+            <h3>THẾ GIỚI</h3>
+            <h1>SANG TRỌNG</h1>
+            <p>Khám phá các bộ sưu tập, tác phẩm mang tính biểu tượng và nhiều hơn thế nữa.</p>
+            <h4>ELEVENTS</h4>
+        </div>
+        <div class="purple-label-slider">
+            <div class="slider-container">
+                <div class="slider-track">
+                    <div class="slider-item">
+                        <img src="https://pbs.twimg.com/media/FM3RSwYXIAQXjfQ?format=jpg&name=4096x4096" alt="Slider Image 1">
+                        <p class="category-label">BỘ SƯU TẬP</p>
+                    </div>
+                    <div class="slider-item">
+                        <img src="https://i.pinimg.com/736x/cc/bb/4c/ccbb4c1b837f91062deb89dd6e4a01e1.jpg" alt="Slider Image 2">
+                        <p class="category-label">NAM</p>
+                    </div>
+                    <div class="slider-item">
+                        <img src="https://i.pinimg.com/736x/75/c1/29/75c1294cb47de39ed39f4368100b1790.jpg" alt="Slider Image 3">
+                        <p class="category-label">NỮ</p>
+                    </div>
+                    <!-- Duplicate items for infinite loop effect -->
+                    <div class="slider-item">
+                        <img src="https://pbs.twimg.com/media/FM3RSwYXIAQXjfQ?format=jpg&name=4096x4096" alt="Slider Image 1">
+                        <p class="category-label">BỘ SƯU TẬP</p>
+                    </div>
+                    <div class="slider-item">
+                        <img src="https://i.pinimg.com/736x/cc/bb/4c/ccbb4c1b837f91062deb89dd6e4a01e1.jpg" alt="Slider Image 2">
+                        <p class="category-label">NAM</p>
+                    </div>
+                    <div class="slider-item">
+                        <img src="https://i.pinimg.com/736x/75/c1/29/75c1294cb47de39ed39f4368100b1790.jpg" alt="Slider Image 3">
+                        <p class="category-label">NỮ</p>
+                    </div>
                 </div>
             </div>
+            <button class="slider-arrow left-arrow"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-arrow right-arrow"><i class="fas fa-chevron-right"></i></button>
         </div>
-        <button class="slider-arrow left-arrow"><i class="fas fa-chevron-left"></i></button>
-        <button class="slider-arrow right-arrow"><i class="fas fa-chevron-right"></i></button>
-    </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -163,14 +179,12 @@
                 <li><a href="#">CÂU CHUYỆN</a></li>
                 <li><a href="#">QUAN TÂM</a></li>
                 <li><a href="#">BỀN VỮNG</a></li>
-              
             </ul>
         </div>
         <div class="footer-column">
             <h5>TRẢI NGHIỆM</h5>
             <ul>
                 <li><a href="#">Tạo một chiếc sơ mi cho bạn</a></li>
-                
             </ul>
         </div>
         <div class="footer-column">
@@ -190,66 +204,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- JavaScript for the slider -->
-    <script>
-        const sliderTrack = document.querySelector('.slider-track');
-        const sliderItems = document.querySelectorAll('.slider-item');
-        const leftArrow = document.querySelector('.left-arrow');
-        const rightArrow = document.querySelector('.right-arrow');
-        const itemWidth = sliderItems[0].offsetWidth + 20; // Width of each item + gap
-        let currentIndex = 0;
-        const totalItems = sliderItems.length / 2; // Since we duplicated items for infinite loop
-
-        // Set initial position
-        sliderTrack.style.transform = `translateX(0px)`;
-
-        // Function to update active item (for scale and opacity effect)
-        function updateActiveItem() {
-            sliderItems.forEach((item, index) => {
-                item.classList.remove('active');
-                if (index % totalItems === currentIndex) {
-                    item.classList.add('active');
-                }
-            });
-        }
-
-        // Initial active item
-        updateActiveItem();
-
-        // Right arrow click
-        rightArrow.addEventListener('click', () => {
-            currentIndex++;
-            if (currentIndex >= totalItems) {
-                currentIndex = 0;
-                sliderTrack.style.transition = 'none';
-                sliderTrack.style.transform = `translateX(0px)`;
-                setTimeout(() => {
-                    sliderTrack.style.transition = 'transform 0.5s ease';
-                    updateActiveItem();
-                }, 50);
-            } else {
-                sliderTrack.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-                updateActiveItem();
-            }
-        });
-
-        // Left arrow click
-        leftArrow.addEventListener('click', () => {
-            currentIndex--;
-            if (currentIndex < 0) {
-                currentIndex = totalItems - 1;
-                sliderTrack.style.transition = 'none';
-                sliderTrack.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-                setTimeout(() => {
-                    sliderTrack.style.transition = 'transform 0.5s ease';
-                    updateActiveItem();
-                }, 50);
-            } else {
-                sliderTrack.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-                updateActiveItem();
-            }
-        });
-    </script>
 </body>
 </html>

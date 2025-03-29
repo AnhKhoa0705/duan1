@@ -19,6 +19,7 @@ const productId = parseInt(urlParams.get("id"));
 
 // Tìm sản phẩm theo ID
 const product = products.find(p => p.id === productId);
+    
 
 if (product) {
     document.getElementById("product-img").src = product.img;
@@ -26,6 +27,8 @@ if (product) {
     document.getElementById("product-name").textContent = product.name;
     document.getElementById("product-price").textContent = product.price;
     document.getElementById("product-description").textContent = product.description;
+    
+    
 } else {
     document.querySelector(".product-detail").innerHTML = "<h2>Sản phẩm không tồn tại</h2>";
 }
