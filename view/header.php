@@ -17,10 +17,9 @@
 
             <ul class="menu">
                 <li><a href="home.php">TRANG CHỦ</a></li>
-                <li><a href="products.php">NAM</a></li>
-                <li><a href="#">NỮ</a></li>
-                <li><a href="#">TRẺ EM</a></li>
-                <li><a href="#">QUÀ</a></li>
+                <li><a href="products.php">SẢN PHẨM</a></li>
+                <li><a href="#">KHÁM PHÁ</a></li>
+                <li><a href="#">KHUYẾN MÃI</a></li>
             </ul>
 
             <div class="icons">
