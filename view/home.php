@@ -16,18 +16,10 @@ $gallery_items = [
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elevents</title>
-    <link rel="stylesheet" href="../public/css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    
-    <div class="hero-section">
+<link rel="stylesheet" href="../public/css/index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="hero-section">
      
         <iframe
             class="hero-video"
@@ -162,7 +154,6 @@ $gallery_items = [
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-column">
             <h5>DỊCH VỤ</h5>
@@ -204,5 +195,3 @@ $gallery_items = [
             </div>
         </div>
     </footer>
-</body>
-</html>
