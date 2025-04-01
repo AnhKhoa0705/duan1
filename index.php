@@ -1,4 +1,5 @@
 <?php 
-    include_once "view/index.php";
-    include_once "view/products.php";
+    // include_once "view/header.php";
+    include_once "view/home.php";
+    // include_once "view/footer.php";
 ?>
