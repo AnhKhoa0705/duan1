@@ -26,7 +26,7 @@
                 <a href="#"><i class="fas fa-search"></i></a>
                 <a href="#"><i class="fas fa-user"></i></a>
                 <a href="#"><i class="fas fa-heart"></i></a>
-                <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                <a href="cart.php"><i class="fas fa-shopping-bag"></i></a>
             </div>
         </div>
     </header>

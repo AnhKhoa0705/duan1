@@ -1,35 +1,43 @@
 <?php
-require_once __DIR__ . "/db_connect.php";
+require_once 'db_connect.php';
 
 class ProductModel {
+    private $db;
     private $conn;
 
     public function __construct() {
-        $db = new Database(); // Khởi tạo class Database
-        $this->conn = $db->getConnection(); // Lấy kết nối database
-    }
-
-    public function getCategories() {
-        $sql = "SELECT * FROM category";
-        return $this->conn->query($sql);
-    }
-
-    public function getProducts($categoryFilter = '') {
-        $sql = "SELECT p.*, i.Image_URL, 
-                       MIN(vo.price) AS MinPrice, 
-                       MAX(vo.price) AS MaxPrice
-                FROM product p 
-                LEFT JOIN image i ON p.Image_ID = i.ID
-                LEFT JOIN variant v ON p.ID = v.Product_ID
-                LEFT JOIN variant_option vo ON v.option_ID = vo.id
-                GROUP BY p.ID, i.Image_URL";
-        
-        if (!empty($categoryFilter)) {
-            $sql .= " HAVING p.category_id = '" . $this->conn->real_escape_string($categoryFilter) . "'";
+        $this->db = new Database();
+        $this->conn = $this->db->getConnection();
+        if (!$this->conn) {
+            die("Không thể kết nối đến cơ sở dữ liệu.");
         }
-        
-        return $this->conn->query($sql);
     }
-        
+
+    public function getAllProducts() {
+        try {
+            $query = "SELECT p.ID, p.Name, p.Discount, p.Views, p.Description, p.Status, c.Name as CategoryName, i.Image_URL 
+                      FROM product p 
+                      LEFT JOIN category c ON p.Category_ID = c.ID 
+                      LEFT JOIN image i ON p.Image_ID = i.ID";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log("Lỗi truy vấn getAllProducts: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function deleteProduct($id) {
+        try {
+            $query = "DELETE FROM product WHERE ID = :id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            error_log("Lỗi xóa sản phẩm: " . $e->getMessage());
+            return false;
+        }
+    }
 }
 ?>
