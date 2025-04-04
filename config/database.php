@@ -1,23 +1,25 @@
 <?php
 class Database {
+    private $host = "localhost";
+    private $db_name = "dan1";
+    private $username = "root";
+    private $password = "";
     private $conn;
 
-    public function __construct() {
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "dan1";
-
-        // Kết nối MySQL
-        $this->conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Kiểm tra kết nối
-        if ($this->conn->connect_error) {
-            die("Kết nối thất bại: " . $this->conn->connect_error);
-        }
-    }
-
     public function getConnection() {
+        $this->conn = null;
+
+        try {
+            $this->conn = new PDO(
+                "mysql:host={$this->host};dbname={$this->db_name};charset=utf8",
+                $this->username,
+                $this->password
+            );
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $exception) {
+            die("Lỗi kết nối database: " . $exception->getMessage());
+        }
+
         return $this->conn;
     }
 }
