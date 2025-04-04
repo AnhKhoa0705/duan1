@@ -1,24 +1,38 @@
+<!-- controller/adminController.php -->
 <?php
-require_once __DIR__ . "/../model/productModel.php";
+require_once '../model/productModel.php';
 
-// Khởi tạo Model
-$productModel = new ProductModel();
+class AdminController {
+    private $productModel;
 
-// Lấy danh mục sản phẩm
-$categoryResult = $productModel->getCategories();
-if (!$categoryResult || $categoryResult->num_rows == 0) {
-    $categoryResult = null; // Gán null nếu không có danh mục nào
+    public function __construct() {
+        $this->productModel = new ProductModel();
+    }
+
+    public function dashboard() {
+        include '../view/admin/dashboard.php';
+    }
+
+    public function products() {
+        $products = $this->productModel->getAllProducts();
+        include '../view/admin/products.php';
+    }
+
+    public function deleteProduct($id) {
+        $this->productModel->deleteProduct($id);
+        header("Location: products.php");
+    }
+
+    public function categories() {
+        include '../view/admin/categories.php';
+    }
+
+    public function users() {
+        include '../view/admin/users.php';
+    }
+
+    public function orders() {
+        include '../view/admin/orders.php';
+    }
 }
-
-// Lấy danh mục được chọn từ URL
-$categoryFilter = isset($_GET['category']) ? $_GET['category'] : '';
-
-// Lấy danh sách sản phẩm (kèm ảnh & giá từ variant)
-$productResult = $productModel->getProducts($categoryFilter);
-if (!$productResult || $productResult->num_rows == 0) {
-    $productResult = null; // Gán null nếu không có sản phẩm nào
-}
-
-// Bao gồm file view để hiển thị dữ liệu
-require_once "../view/products.php";
 ?>

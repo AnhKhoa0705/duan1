@@ -49,10 +49,8 @@ $gallery_items = [
                     </div>
 
                     <ul class="menu">
-                        <li><a href="/index.php">TRANG CHỦ</a></li>
-                        <li><a href="#">Nam</a></li>
-                        <li><a href="#">NỮ</a></li>
-                        <li><a href="#">TRẺ EM</a></li>
+                        <li><a href="home.php">TRANG CHỦ</a></li>
+                        <li><a href="products.php">SẢN PHẨM</a></li>
                         <li><a href="#">KHÁM PHÁ</a></li>
                         <li><a href="#">KHUYẾN MÃI</a></li>
                     </ul>
@@ -61,7 +59,7 @@ $gallery_items = [
                         <a href="#"><i class="fas fa-search"></i></a>
                         <a href="#"><i class="fas fa-user"></i></a>
                         <a href="#"><i class="fas fa-heart"></i></a>
-                        <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                        <a href="cart.php"><i class="fas fa-shopping-bag"></i></a>
                     </div>
                 </div>
             </div>
