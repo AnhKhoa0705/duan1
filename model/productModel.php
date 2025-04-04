@@ -1,12 +1,14 @@
 <?php
-require_once __DIR__ . "/db_connect.php";
+if (!file_exists(__DIR__ . "/db_connect.php")) {
+    die("❌ Lỗi: Không tìm thấy file db_connect.php");
+}
 
 class ProductModel {
     private $conn;
 
     public function __construct() {
         $db = new Database(); // Khởi tạo class Database
-        $this->conn = $db->getConnection(); // Lấy kết nối database
+        $this->conn = $db->getConnection(); 
     }
 
     public function getCategories() {
@@ -32,4 +34,6 @@ class ProductModel {
     }
         
 }
+/*chitiet*/
+
 ?>

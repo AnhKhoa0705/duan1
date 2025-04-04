@@ -1,4 +1,7 @@
+    
     <?php
+    // include_once "../view/header.php";
+    // include_once "../view/footer.php";
     require_once __DIR__ . "/../controller/productController.php";
     ?>
     <!DOCTYPE html>
@@ -11,8 +14,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
     <body>
-    <<<<<<< HEAD
-
     <header>
         <div class="navbar">
             <div class="logo"><p>Elevents</p></div>
@@ -74,11 +75,14 @@
                 }
                 ?>
                 <div class='product reveal'>
-                    <img src='<?= $imageSrc; ?>' alt='<?= htmlspecialchars($row['Name']); ?>'>  
-                    <h3><?= htmlspecialchars($row['Name']); ?></h3>
-                    <p>Giá: <?= $price; ?></p>
-                    <button class="buy">Mua ngay</button>
-                </div>
+    <a href="product_detail.php?id=<?= $row['ID']; ?>">
+        <img src='<?= $imageSrc; ?>' alt='<?= htmlspecialchars($row['Name']); ?>'>  
+        <h3><?= htmlspecialchars($row['Name']); ?></h3>
+    </a>
+    <p>Giá: <?= $price; ?></p>
+    <button class="buy">Mua ngay</button>
+</div>
+
             <?php }
         } else {
             echo "<p>Không có sản phẩm nào.</p>";
@@ -113,7 +117,6 @@
         revealOnScroll();
     });
     </script>
-    =======
 
     </body>
     </html>
