@@ -1,0 +1,552 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #f5f5f5;
+    color: #1a2526;
+}
+
+/* Hero section (full-screen video background) */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* YouTube iframe background styling */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    border: none;
+    pointer-events: none;
+}
+
+/* Overlay styling (to make content more readable) */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+/* Navbar styling */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+/* Top bar styling */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #1a2526;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.top-bar p {
+    margin: 0;
+}
+
+.top-bar a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.top-bar a:hover {
+    text-decoration: underline;
+}
+
+.top-bar-right a {
+    margin-left: 20px;
+}
+
+/* Main nav styling */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: transparent;
+}
+
+/* Logo styling */
+.logo p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Menu styling */
+.menu {
+    display: flex;
+    list-style: none;
+}
+
+.menu li {
+    margin: 0 20px;
+    position: relative;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    display: inline-block;
+    transform-origin: center;
+}
+
+.menu li a:hover {
+    color: #a67c00;
+    transform: scale(1.1);
+}
+
+/* Underline animation for menu items */
+.menu li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: #a67c00;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.menu li a:hover::after {
+    width: 100%;
+}
+
+/* Icons styling */
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icons a {
+    margin-left: 15px;
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+    color: #fff;
+}
+
+.icons a:hover {
+    transform: scale(1.2);
+    color: #a67c00;
+}
+
+/* Underline animation for icons */
+.icons a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: #a67c00;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.icons a:hover::after {
+    width: 100%;
+}
+
+/* Style the icon itself */
+.icons a i {
+    font-size: 18px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.icons a:hover i {
+    opacity: 1;
+}
+
+/* Hero content styling */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 3;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.hero-content h2 {
+    font-size: 36px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* Hero buttons styling */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hero-buttons .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    border-radius: 25px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-buttons .btn:hover {
+    background-color: #fff;
+    color: #1a2526;
+}
+
+/* Story section styling */
+.story {
+    background-color: #e6f0fa;
+    padding: 50px 20%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Gallery section styling */
+.gallery {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 40px;
+    background-color: #fff;
+}
+
+.gallery-item {
+    position: relative;
+    width: 32%;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.gallery-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    border-radius: 25px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.gallery-btn:hover {
+    background-color: #fff;
+    color: #1a2526;
+}
+
+/* Collection section styling */
+.collection {
+    position: relative;
+    text-align: center;
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.collection img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.collection-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.collection-content h3 {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.collection-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.collection-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.collection-buttons .btn {
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    border-radius: 25px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.collection-buttons .btn:hover {
+    background-color: #fff;
+    color: #1a2526;
+}
+
+/* Purple Label section with slider */
+.purple-label {
+    display: flex;
+    align-items: center;
+    padding: 50px 40px;
+    background-color: #fff;
+}
+
+.purple-label-content {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.purple-label-content h3 {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    color: #1a2526;
+}
+
+.purple-label-content h1 {
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #1a2526;
+}
+
+.purple-label-content p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.purple-label-content h4 {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #1a2526;
+}
+
+/* Slider styling */
+.purple-label-slider {
+    flex: 2;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth sliding transition */
+}
+
+.slider-item {
+    flex: 0 0 32%; /* Show 3 items at a time (100% / 3 - gap) */
+    margin-right: 20px; /* Gap between items */
+    text-align: center;
+    opacity: 0.7; /* Default opacity for non-active items */
+    transform: scale(0.9); /* Default scale for non-active items */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for scale and opacity */
+}
+
+.slider-item.active {
+    opacity: 1; /* Full opacity for active item */
+    transform: scale(1); /* Full scale for active item */
+}
+
+.slider-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.category-label {
+    margin-top: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #1a2526;
+}
+
+/* Slider arrows */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.slider-arrow:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.slider-arrow i {
+    font-size: 16px;
+    color: #1a2526;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #fff;
+    padding: 50px 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-top: 1px solid #e0e0e0;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-column h5 {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #1a2526;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-column form {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-column input[type="email"] {
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 70%;
+}
+
+.footer-column button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #1a2526;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.footer-column button:hover {
+    background-color: #a67c00;
+}
+
+.footer-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 12px;
+}
+
+.social-icons a {
+    color: #1a2526;
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+.social-icons a:hover {
+    color: #a67c00;
+}
