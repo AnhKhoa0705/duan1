@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . "/db_connect.php";
 
-class ProductModel {
+class ProductDetailModel {
     private $conn;
 
     public function __construct() {
@@ -9,34 +9,31 @@ class ProductModel {
         $this->conn = $db->getConnection(); // Lấy kết nối database
     }
 
-    public function getCategories() {
-        $sql = "SELECT * FROM category";
-        $result = $this->conn->query($sql);
-        return $result ?: null;
-    }
-
-    public function getProducts($categoryFilter = '') {
+    public function getProductDetail($productID) {
         $sql = "SELECT p.*, i.Image_URL, 
                        MIN(vo.price) AS MinPrice, 
-                       MAX(vo.price) AS MaxPrice
+                       MAX(vo.price) AS MaxPrice,
+                       GROUP_CONCAT(DISTINCT vo.size ORDER BY vo.size ASC) AS Sizes,
+                       GROUP_CONCAT(DISTINCT vo.color ORDER BY vo.color ASC) AS Colors,
+                       SUM(vo.quantity) AS MaxQuantity
                 FROM product p 
                 LEFT JOIN image i ON p.Image_ID = i.ID
                 LEFT JOIN variant v ON p.ID = v.Product_ID
                 LEFT JOIN variant_option vo ON v.option_ID = vo.id
-                GROUP BY p.ID, i.Image_URL";
+                WHERE p.ID = ?
+                GROUP BY p.ID, i.Image_URL
+                LIMIT 1";
 
-        if (!empty($categoryFilter)) {
-            $sql .= " HAVING p.category_id = ?";
-        }
-        
         $stmt = $this->conn->prepare($sql);
-        if (!empty($categoryFilter)) {
-            $stmt->bind_param("s", $categoryFilter);
+        if (!$stmt) {
+            die("Lỗi truy vấn: " . $this->conn->error);
         }
 
+        $stmt->bind_param("i", $productID);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result ?: null;
+
+        return ($result->num_rows > 0) ? $result : null;
     }
 }
 ?>
