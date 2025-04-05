@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../model/detailModel.php";
+require_once __DIR__ . "../../model/detailModel.php";
 
 // Khởi tạo Model
 $productModel = new ProductDetailModel();

@@ -1,18 +1,18 @@
 <?php
-require_once __DIR__ . "/db_connect.php";
+require_once __DIR__ . "../../config/database.php";
 
 class ProductModel {
     private $conn;
 
     public function __construct() {
-        $db = new Database(); // Khởi tạo class Database
-        $this->conn = $db->getConnection(); // Lấy kết nối database
+        $db = new Database();
+        $this->conn = $db->getConnection();
     }
 
     public function getCategories() {
         $sql = "SELECT * FROM category";
-        $result = $this->conn->query($sql);
-        return $result ?: null;
+        $stmt = $this->conn->query($sql);
+        return $stmt ? $stmt->fetchAll(PDO::FETCH_ASSOC) : null;
     }
 
     public function getProducts($categoryFilter = '') {
@@ -22,21 +22,33 @@ class ProductModel {
                 FROM product p 
                 LEFT JOIN image i ON p.Image_ID = i.ID
                 LEFT JOIN variant v ON p.ID = v.Product_ID
-                LEFT JOIN variant_option vo ON v.option_ID = vo.id
-                GROUP BY p.ID, i.Image_URL";
+                LEFT JOIN variant_option vo ON v.option_ID = vo.id";
 
         if (!empty($categoryFilter)) {
-            $sql .= " HAVING p.category_id = ?";
+            $sql .= " WHERE p.category_id = ?";
         }
-        
+
+        $sql .= " GROUP BY p.ID, i.Image_URL";
+
         $stmt = $this->conn->prepare($sql);
+
         if (!empty($categoryFilter)) {
-            $stmt->bind_param("s", $categoryFilter);
+            $stmt->execute([$categoryFilter]);
+        } else {
+            $stmt->execute();
         }
 
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result ?: null;
+        return $stmt ? $stmt->fetchAll(PDO::FETCH_ASSOC) : null;
+    }
+
+    public function getAllProducts() {
+        return $this->getProducts();
+    }
+
+    public function deleteProduct($id) {
+        $sql = "DELETE FROM product WHERE ID = ?";
+        $stmt = $this->conn->prepare($sql);
+        return $stmt->execute([$id]);
     }
 }
 ?>

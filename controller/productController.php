@@ -1,24 +1,19 @@
 <?php
-require_once __DIR__ . "/../model/productModel.php";
+require_once __DIR__ . "../../model/productModel.php";
 
-// Khởi tạo Model
 $productModel = new ProductModel();
 
-// Lấy danh mục sản phẩm
 $categoryResult = $productModel->getCategories();
-if (!$categoryResult || $categoryResult->num_rows == 0) {
+if (!$categoryResult || count($categoryResult) === 0) {
     $categoryResult = null;
 }
 
-// Lấy danh mục được chọn từ URL
 $categoryFilter = isset($_GET['category']) ? $_GET['category'] : '';
 
-// Lấy danh sách sản phẩm (kèm ảnh & giá từ variant)
 $productResult = $productModel->getProducts($categoryFilter);
-if (!$productResult || $productResult->num_rows == 0) {
+if (!$productResult || count($productResult) === 0) {
     $productResult = null;
 }
 
-// Gọi View danh sách sản phẩm
 require_once "../view/products.php";
 ?>

@@ -1,12 +1,12 @@
 <?php
-require_once __DIR__ . "/db_connect.php";
+require_once __DIR__ . "../../config/database.php";
 
 class ProductDetailModel {
     private $conn;
 
     public function __construct() {
-        $db = new Database(); // Khởi tạo class Database
-        $this->conn = $db->getConnection(); // Lấy kết nối database
+        $db = new Database();
+        $this->conn = $db->getConnection();
     }
 
     public function getProductDetail($productID) {
@@ -25,15 +25,10 @@ class ProductDetailModel {
                 LIMIT 1";
 
         $stmt = $this->conn->prepare($sql);
-        if (!$stmt) {
-            die("Lỗi truy vấn: " . $this->conn->error);
-        }
+        $stmt->execute([$productID]);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $stmt->bind_param("i", $productID);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return ($result->num_rows > 0) ? $result : null;
+        return count($result) > 0 ? $result : null;
     }
 }
 ?>
