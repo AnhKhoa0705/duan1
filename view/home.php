@@ -16,7 +16,7 @@ $gallery_items = [
 
 ?>
 
-<link rel="stylesheet" href="../public/css/index.css">
+<link rel="stylesheet" href="/DA1/public/css/index.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <div class="hero-section">
@@ -50,7 +50,7 @@ $gallery_items = [
 
                     <ul class="menu">
                         <li><a href="home.php">TRANG CHỦ</a></li>
-                        <li><a href="products.php">SẢN PHẨM</a></li>
+                        <li><a href="view/products.php">SẢN PHẨM</a></li>
                         <li><a href="#">KHÁM PHÁ</a></li>
                         <li><a href="#">KHUYẾN MÃI</a></li>
                     </ul>
