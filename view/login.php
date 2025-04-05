@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . "/header.php";
-require_once __DIR__ . "/../model/db_connect.php"; // Import kết nối database
+require_once __DIR__ . "../../config/database.php"; 
 
 $message = "";
 $toastClass = "";

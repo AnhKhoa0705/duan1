@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . "/header.php";
-require_once __DIR__ . "/../controller/detailController.php";
+require_once __DIR__ . "../../controller/detailController.php";
 
 // Kiểm tra ID sản phẩm từ URL
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
@@ -10,12 +10,12 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 $productID = intval($_GET['id']);
 $productDetail = $productModel->getProductDetail($productID);
 
-// Kiểm tra kết quả truy vấn
-if (!$productDetail || $productDetail->num_rows === 0) {
+// Với PDO, $productDetail là mảng, không phải object
+if (!$productDetail || count($productDetail) === 0) {
     die("<p style='color: red; text-align: center; font-size: 18px;'>Sản phẩm không tồn tại!</p>");
 }
 
-$row = $productDetail->fetch_assoc();
+$row = $productDetail[0]; // Lấy dòng đầu tiên
 ?>
 
 <body class="bg-gray-100 text-gray-900">
