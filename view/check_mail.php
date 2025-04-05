@@ -2,9 +2,9 @@
 include '../config/database.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
+    $email = $_POST['Email'];
 
-    $stmt = $conn->prepare("SELECT email FROM userdata WHERE email = ?");
+    $stmt = $conn->prepare("SELECT Email FROM users WHERE Email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();

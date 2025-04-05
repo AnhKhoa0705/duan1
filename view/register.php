@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Check if email already exists
-    $checkEmailStmt = $conn->prepare("SELECT email FROM userdata WHERE email = ?");
+    $checkEmailStmt = $conn->prepare("SELECT Email FROM users WHERE Email = ?");
     $checkEmailStmt->bind_param("s", $email);
     $checkEmailStmt->execute();
     $checkEmailStmt->store_result();
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $toastClass = "#007bff"; // Primary color
     } else {
         // Prepare and bind
-        $stmt = $conn->prepare("INSERT INTO userdata (username, email, password) VALUES (?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO users (Username, Email, Password) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $username, $email, $password);
 
         if ($stmt->execute()) {
