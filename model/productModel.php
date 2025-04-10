@@ -1,54 +1,26 @@
 <?php
-require_once __DIR__ . "../../config/database.php";
-
+// model/productModel.php
 class ProductModel {
     private $conn;
 
-    public function __construct() {
-        $db = new Database();
-        $this->conn = $db->getConnection();
+    public function __construct($conn) {
+        $this->conn = $conn;
     }
 
-    public function getCategories() {
-        $sql = "SELECT * FROM category";
-        $stmt = $this->conn->query($sql);
-        return $stmt ? $stmt->fetchAll(PDO::FETCH_ASSOC) : null;
-    }
-
-    public function getProducts($categoryFilter = '') {
-        $sql = "SELECT p.*, i.Image_URL, 
-                       MIN(vo.price) AS MinPrice, 
-                       MAX(vo.price) AS MaxPrice
-                FROM product p 
-                LEFT JOIN image i ON p.Image_ID = i.ID
-                LEFT JOIN variant v ON p.ID = v.Product_ID
-                LEFT JOIN variant_option vo ON v.option_ID = vo.id";
-
-        if (!empty($categoryFilter)) {
-            $sql .= " WHERE p.category_id = ?";
-        }
-
-        $sql .= " GROUP BY p.ID, i.Image_URL";
-
-        $stmt = $this->conn->prepare($sql);
-
-        if (!empty($categoryFilter)) {
-            $stmt->execute([$categoryFilter]);
-        } else {
-            $stmt->execute();
-        }
-
-        return $stmt ? $stmt->fetchAll(PDO::FETCH_ASSOC) : null;
+    public function getTotalProducts() {
+        $stmt = $this->conn->query("SELECT COUNT(*) FROM products");
+        return $stmt->fetchColumn();
     }
 
     public function getAllProducts() {
-        return $this->getProducts();
+        $stmt = $this->conn->query("SELECT * FROM products");
+        return $stmt->fetchAll();
     }
 
     public function deleteProduct($id) {
-        $sql = "DELETE FROM product WHERE ID = ?";
-        $stmt = $this->conn->prepare($sql);
-        return $stmt->execute([$id]);
+        $stmt = $this->conn->prepare("DELETE FROM products WHERE id = :id");
+        $stmt->bindValue(':id', (int)$id, PDO::PARAM_INT);
+        $stmt->execute();
     }
 }
 ?>

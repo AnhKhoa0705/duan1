@@ -1,15 +1,25 @@
 <?php
+// model/orderModel.php
 class OrderModel {
-    public function getAllOrders() {
-        // Giả lập dữ liệu
-        return [
-            ['id' => 1, 'user_id' => 1, 'total' => 199.97],
-            ['id' => 2, 'user_id' => 2, 'total' => 229.97]
-        ];
+    private $conn;
+
+    public function __construct($conn) {
+        $this->conn = $conn;
     }
 
-    public function countOrders() {
-        return count($this->getAllOrders());
+    public function getTotalOrders() {
+        $stmt = $this->conn->query("SELECT COUNT(*) FROM orders");
+        return $stmt->fetchColumn();
+    }
+
+    public function getRecentOrders($limit = 5) {
+        $stmt = $this->conn->prepare("SELECT ID as id, Name as customer_name, Total_Amount as total, Status as status, Order_Date as created_at 
+                                     FROM orders 
+                                     ORDER BY Order_Date DESC 
+                                     LIMIT :limit");
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 }
 ?>

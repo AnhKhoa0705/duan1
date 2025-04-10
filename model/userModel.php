@@ -1,15 +1,14 @@
 <?php
 class UserModel {
-    public function getAllUsers() {
-        // Giả lập dữ liệu (thay bằng truy vấn database thực tế)
-        return [
-            ['id' => 1, 'name' => 'User 1', 'email' => 'user1@example.com'],
-            ['id' => 2, 'name' => 'User 2', 'email' => 'user2@example.com']
-        ];
+    private $conn;
+
+    public function __construct($conn) {
+        $this->conn = $conn;
     }
 
-    public function countUsers() {
-        return count($this->getAllUsers());
+    public function getTotalUsers() {
+        $stmt = $this->conn->query("SELECT COUNT(*) FROM users");
+        return $stmt->fetchColumn();
     }
 }
 ?>
