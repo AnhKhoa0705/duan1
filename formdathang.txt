@@ -1,0 +1,8 @@
+
+    <form action="index.php?pages=viewcart" method="post">
+        <input type="hidden" name="id" value="">
+        <input type="hidden" name="price" value="">
+        <input type="hidden" name="img" value="">
+        <input type="hidden" name="name" value="">
+        <button type="submit">Đặt hàng</button>
+    </form>
