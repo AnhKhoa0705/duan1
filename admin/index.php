@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+<?php include '../admin/view/header.php'; ?>
 
 <main class="flex-1 p-6">
     <!-- Thẻ Dashboard -->
@@ -81,4 +81,4 @@
     </div>
 </main>
 
-<?php include 'footer.php'; ?>
+<?php include '../admin/view/footer.php'; ?>
