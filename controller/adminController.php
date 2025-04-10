@@ -1,14 +1,5 @@
 <?php
-<<<<<<< HEAD
-// controller/adminController.php
-require_once '../config/database.php';
-require_once '../model/userModel.php';
-require_once '../model/productModel.php';
-require_once '../model/detailModel.php';
-require_once '../model/orderModel.php';
-=======
 require_once 'model/productModel.php';
->>>>>>> bfa0242a3038fc1da1b18ad2e6fa38ed637607fa
 
 class AdminController {
     private $userModel;

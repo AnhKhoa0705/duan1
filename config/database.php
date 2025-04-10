@@ -1,7 +1,7 @@
 <?php
 // config/database.php
 $host = 'localhost';
-$dbname = 'dan1';
+$dbname = 'duan1';
 $username = '';
 $password = '';
 
