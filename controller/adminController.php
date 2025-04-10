@@ -1,5 +1,5 @@
 <?php
-require_once '../../model/productModel.php';
+require_once 'model/productModel.php';
 
 class AdminController {
     private $productModel;
