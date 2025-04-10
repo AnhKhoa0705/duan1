@@ -50,5 +50,20 @@ class ProductModel {
         $stmt = $this->conn->prepare($sql);
         return $stmt->execute([$id]);
     }
+    public function find($id) {
+        $sql = "SELECT p.*, i.Image_URL, 
+                       MIN(vo.price) AS MinPrice, 
+                       MAX(vo.price) AS MaxPrice
+                FROM product p 
+                LEFT JOIN image i ON p.Image_ID = i.ID
+                LEFT JOIN variant v ON p.ID = v.Product_ID
+                LEFT JOIN variant_option vo ON v.option_ID = vo.id
+                WHERE p.ID = ?
+                GROUP BY p.ID, i.Image_URL";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
 ?>
