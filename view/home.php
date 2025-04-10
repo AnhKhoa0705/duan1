@@ -35,35 +35,6 @@ $gallery_items = [
         <div class="hero-overlay"></div>
 
         <!-- Navbar -->
-        <header>
-            <div class="navbar">
-                <div class="top-bar">
-                    <p>INTRODUCING SPRING 2025: ELEVENTS’ HORIZON | <a href="#">KHÁM PHÁ</a></p>
-                    <div class="top-bar-right">
-                        <a href="#">VI | VIETNAM</a>
-                    </div>
-                </div>
-                <div class="main-nav">
-                    <div class="logo">
-                        <p>ELEVENTS</p>
-                    </div>
-
-                    <ul class="menu">
-                        <li><a href="home.php">TRANG CHỦ</a></li>
-                        <li><a href="view/products.php">SẢN PHẨM</a></li>
-                        <li><a href="#">KHÁM PHÁ</a></li>
-                        <li><a href="#">KHUYẾN MÃI</a></li>
-                    </ul>
-
-                    <div class="icons">
-                        <a href="#"><i class="fas fa-search"></i></a>
-                        <a href="#"><i class="fas fa-user"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
-                        <a href="cart.php"><i class="fas fa-shopping-bag"></i></a>
-                    </div>
-                </div>
-            </div>
-        </header>
 
         <!-- Hero content -->
         <div class="hero-content">
@@ -151,7 +122,7 @@ $gallery_items = [
             <button class="slider-arrow right-arrow"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
-
+<!-- 
     <footer class="footer">
         <div class="footer-column">
             <h5>DỊCH VỤ</h5>
@@ -192,4 +163,4 @@ $gallery_items = [
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
-    </footer>
+    </footer> -->

@@ -1,5 +1,10 @@
 <?php
+<<<<<<< HEAD
 // model/productModel.php
+=======
+require_once "config/database.php";
+
+>>>>>>> bfa0242a3038fc1da1b18ad2e6fa38ed637607fa
 class ProductModel {
     private $conn;
 

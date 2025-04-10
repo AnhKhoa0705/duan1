@@ -97,10 +97,10 @@ body {
 /* Product Grid */
 .product-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(4,  minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
-    max-width: 1200px;
+    max-width: 1500px;
     margin: auto;
 }
 
@@ -114,17 +114,21 @@ body {
     opacity: 0;
     animation: fadeIn 0.8s ease-in-out forwards;
 }
-
+.product img{
+    width: 100%;
+    aspect-ratio: 1;
+}
 /* Hover hiệu ứng */
 .product:hover {
     transform: translateY(-5px);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
 }
+
 .buy {
     background: linear-gradient(135deg, #ff6600, #ff4500);
     color: white;
     border: none;
-    padding: 12px 24px;
+    padding: px 24px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
