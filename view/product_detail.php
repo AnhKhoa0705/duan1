@@ -75,7 +75,7 @@ $row = $productDetail[0]; // Lấy dòng đầu tiên
                         class="w-full p-2 border border-gray-300 rounded-md">
 
                     <button type="submit" class="w-full mt-6 bg-black text-white py-3 rounded-md font-semibold hover:bg-yellow-500 transition">
-                        Thêm vào giỏ hàng
+                    <a href="index.php?controller=cart&action=add&id=<?= $product['id'] ?>">Thêm vào giỏ</a>
                     </button>
                 </form>
             </div>

@@ -12,8 +12,7 @@
         <?php foreach ($categoryResult as $category): ?>
           <option
             value="<?= htmlspecialchars($category['ID']); ?>"
-            <?= ($categoryFilter == $category['ID']) ? 'selected' : '' ?>
-          >
+            <?= ($categoryFilter == $category['ID']) ? 'selected' : '' ?>>
             <?= htmlspecialchars($category['Name']); ?>
           </option>
         <?php endforeach; ?>
@@ -28,44 +27,44 @@
   <?php if (!empty($productResult)): ?>
     <?php foreach ($productResult as $row): ?>
       <?php
-        $imageSrc = (filter_var($row['Image_URL'], FILTER_VALIDATE_URL)) 
-                    ? $row['Image_URL'] 
-                    : "public/img/" . htmlspecialchars($row['Image_URL']);
+      $imageSrc = (filter_var($row['Image_URL'], FILTER_VALIDATE_URL))
+        ? $row['Image_URL']
+        : "public/img/" . htmlspecialchars($row['Image_URL']);
 
-        if (isset($row['MinPrice']) && isset($row['MaxPrice'])) {
-            $price = ($row['MinPrice'] == $row['MaxPrice']) 
-                ? number_format($row['MinPrice'], 0, ',', '.') . " VNĐ" 
-                : number_format($row['MinPrice'], 0, ',', '.') . " - " . number_format($row['MaxPrice'], 0, ',', '.') . " VNĐ";
-        } else {
-            $price = "Liên hệ";
-        }
+      if (isset($row['MinPrice']) && isset($row['MaxPrice'])) {
+        $price = ($row['MinPrice'] == $row['MaxPrice'])
+          ? number_format($row['MinPrice'], 0, ',', '.') . " VNĐ"
+          : number_format($row['MinPrice'], 0, ',', '.') . " - " . number_format($row['MaxPrice'], 0, ',', '.') . " VNĐ";
+      } else {
+        $price = "Liên hệ";
+      }
       ?>
       <div class="reveal bg-white border border-gray-200 rounded-lg shadow hover:shadow-md transition p-4 flex flex-col">
         <a href="index.php?action=product_detail&id=<?= $row['ID']; ?>" class="block mb-3">
-        <div class="w-full h-[300px] bg-gray-100 overflow-hidden rounded-md">
+          <div class="w-full h-[300px] bg-gray-100 overflow-hidden rounded-md">
             <img
-            src="<?= $imageSrc; ?>"
-            alt="<?= htmlspecialchars($row['Name']); ?>"
-            class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-            />
-        </div>
+              src="<?= $imageSrc; ?>"
+              alt="<?= htmlspecialchars($row['Name']); ?>"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+          </div>
           <h3 class="text-base font-semibold text-gray-900 mt-2"><?= htmlspecialchars($row['Name']); ?></h3>
         </a>
         <p class="text-sm text-gray-600 mt-1 mb-2">Giá: <span class="font-bold text-red-600"><?= $price; ?></span></p>
         <button class="bg-gray-900 hover:bg-black text-white py-2 px-4 rounded mt-auto">
-          Mua ngay
+          <a href="index.php?controller=cart&action=add&id=<?= $product['id'] ?>">Thêm vào giỏ</a>
         </button>
       </div>
     <?php endforeach; ?>
-  
-    <?php else: ?>
+
+  <?php else: ?>
     <p class="text-gray-600 text-center col-span-full">Không có sản phẩm nào.</p>
-    <?php endif; ?>
+  <?php endif; ?>
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     let elements = document.querySelectorAll(".reveal");
+
     function revealOnScroll() {
       elements.forEach((el) => {
         let position = el.getBoundingClientRect().top;
@@ -85,5 +84,6 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
 </body>
+
 </html>
 <?php require_once __DIR__ . "/footer.php"; ?>
