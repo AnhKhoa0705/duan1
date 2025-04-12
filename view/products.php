@@ -1,12 +1,17 @@
-<section class="bg-white shadow mt-[64px] px-6 py-4">
-  <form method="GET" action="index.php" class="flex flex-wrap items-center gap-4">
+<section class="bg-white shadow-md rounded-xl mt-16 px-8 py-6">
+  <form method="GET" action="index.php" class="flex flex-wrap items-center gap-6">
     <input type="hidden" name="action" value="products">
-    <label for="category" class="text-gray-800 font-medium">Lọc theo danh mục:</label>
+
+    <label for="category" class="text-gray-900 text-lg font-semibold">
+      Lọc theo danh mục:
+    </label>
+
     <select
       name="category"
       id="category"
       onchange="this.form.submit()"
-      class="border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 text-gray-900 bg-white">
+      class="border border-gray-300 rounded-xl px-5 py-3 text-base text-gray-800 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-500 transition duration-200 hover:border-gray-400"
+    >
       <option value="">Tất cả</option>
       <?php if (!empty($categoryResult)): ?>
         <?php foreach ($categoryResult as $category): ?>
@@ -24,6 +29,7 @@
   </form>
 </section>
 
+
 <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 bg-white">
   <?php if (!empty($productResult)): ?>
     <?php foreach ($productResult as $row): ?>
@@ -40,9 +46,9 @@
             $price = "Liên hệ";
         }
       ?>
-      <div class="reveal bg-white border border-gray-200 rounded-lg shadow hover:shadow-md transition p-4 flex flex-col">
+      <div class="reveal bg-white border rounded-lg shadow hover:shadow-md transition p-4 flex flex-col">
         <a href="index.php?action=product_detail&id=<?= $row['ID']; ?>" class="block mb-3">
-        <div class="w-full h-[300px] bg-gray-100 overflow-hidden rounded-md">
+        <div class="w-full h-[300px] overflow-hidden rounded-md">
             <img
             src="<?= $imageSrc; ?>"
             alt="<?= htmlspecialchars($row['Name']); ?>"
