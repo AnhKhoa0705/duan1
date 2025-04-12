@@ -12,18 +12,7 @@
             <div class="mb-4">
                 <label class="block text-gray-700">Danh mục</label>
                 <select name="category_id" class="w-full p-2 border rounded" required>
-                    <?php
-                    require_once '../../model/db_connect.php';
-                    $db = new Database();
-                    $conn = $db->getConnection();
-                    $query = "SELECT * FROM category WHERE Status = 'Active'";
-                    $stmt = $conn->prepare($query);
-                    $stmt->execute();
-                    $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    foreach ($categories as $category) {
-                        echo "<option value='{$category['ID']}'>{$category['Name']}</option>";
-                    }
-                    ?>
+                   
                 </select>
             </div>
             <div class="mb-4">

@@ -20,19 +20,19 @@
                 Admin Panel
             </div>
             <nav class="flex-1">
-                <a href="dashboard.php" class="flex items-center p-4 hover:bg-gray-700 <?php echo basename($_SERVER['PHP_SELF']) == 'dashboard.php' ? 'bg-gray-700' : ''; ?>">
+                <a href="../../admin/index.php" class="flex items-center p-4 hover:bg-gray-700 <?php echo basename($_SERVER['PHP_SELF']) == 'dashboard.php' ? 'bg-gray-700' : ''; ?>">
                     <i class="fas fa-home mr-3"></i> Trang chủ
                 </a>
-                <a href="categories.php" class="flex items-center p-4 hover:bg-gray-700 <?php echo basename($_SERVER['PHP_SELF']) == 'categories.php' ? 'bg-gray-700' : ''; ?>">
+                <a href="../../admin/view/categories.php" class="flex items-center p-4 hover:bg-gray-700 <?php echo basename($_SERVER['PHP_SELF']) == 'categories.php' ? 'bg-gray-700' : ''; ?>">
                     <i class="fas fa-list mr-3"></i> Danh mục
                 </a>
-                <a href="products.php" class="flex items-center p-4 hover:bg-gray-700 <?php echo basename($_SERVER['PHP_SELF']) == 'products.php' ? 'bg-gray-700' : ''; ?>">
+                <a href="../../admin/view/products.php" class="flex items-center p-4 hover:bg-gray-700 <?php echo basename($_SERVER['PHP_SELF']) == 'products.php' ? 'bg-gray-700' : ''; ?>">
                     <i class="fas fa-box mr-3"></i> Sản phẩm
                 </a>
-                <a href="users.php" class="flex items-center p-4 hover:bg-gray-700 <?php echo basename($_SERVER['PHP_SELF']) == 'users.php' ? 'bg-gray-700' : ''; ?>">
+                <a href="../../admin/view/users.php" class="flex items-center p-4 hover:bg-gray-700 <?php echo basename($_SERVER['PHP_SELF']) == 'users.php' ? 'bg-gray-700' : ''; ?>">
                     <i class="fas fa-users mr-3"></i> Tài khoản
                 </a>
-                <a href="orders.php" class="flex items-center p-4 hover:bg-gray-700 <?php echo basename($_SERVER['PHP_SELF']) == 'orders.php' ? 'bg-gray-700' : ''; ?>">
+                <a href="../../admin/view/orders.php" class="flex items-center p-4 hover:bg-gray-700 <?php echo basename($_SERVER['PHP_SELF']) == 'orders.php' ? 'bg-gray-700' : ''; ?>">
                     <i class="fas fa-shopping-cart mr-3"></i> Đơn hàng
                 </a>
             </nav>
