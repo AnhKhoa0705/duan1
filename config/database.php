@@ -1,17 +1,26 @@
 <?php
-// config/database.php
+class Database {
+    private $host = "localhost";
+    private $db_name = "dan1";
+    private $username = "root";
+    private $password = "";
+    private $conn;
 
-    $host = 'localhost';
-    $dbname = 'dan1';
-    $username = 'root'; // Cập nhật nếu cần
-    $password = '';     // Cập nhật nếu cần
+    public function getConnection() {
+        $this->conn = null;
 
-    try {
-        // Tạo kết nối PDO
-        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  // Thiết lập chế độ xử lý lỗi
-        echo "Kết nối thành công!";
-    } catch (PDOException $e) {
-        echo "Kết nối thất bại: " . $e->getMessage();
+        try {
+            $this->conn = new PDO(
+                "mysql:host={$this->host};dbname={$this->db_name};charset=utf8",
+                $this->username,
+                $this->password
+            );
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $exception) {
+            die("Lỗi kết nối database: " . $exception->getMessage());
+        }
+
+        return $this->conn;
     }
+}
 ?>

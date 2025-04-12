@@ -2,34 +2,18 @@
 require_once 'model/productModel.php';
 
 class AdminController {
-    private $userModel;
     private $productModel;
-    private $detailModel;
-    private $orderModel;
 
-    public function __construct($conn) {
-        $this->userModel = new UserModel($conn);
-        $this->productModel = new ProductModel($conn);
-        $this->detailModel = new DetailModel($conn);
-        $this->orderModel = new OrderModel($conn);
+    public function __construct() {
+        $this->productModel = new ProductModel();
     }
 
-    public function dashboard() {
-        $totalUsers = $this->userModel->getTotalUsers();
-        $totalProducts = $this->productModel->getTotalProducts();
-        $totalCategories = $this->detailModel->getTotalCategories();
-        $totalOrders = $this->orderModel->getTotalOrders();
-        $recentOrders = $this->orderModel->getRecentOrders();
-
-        include '../view/admin/dashboard.php';
+    public function products() {
+        return $this->productModel->getAllProducts();
     }
 
     public function deleteProduct($id) {
-        $this->productModel->deleteProduct($id);
-    }
-
-    public function getProducts() {
-        return $this->productModel->getAllProducts();
+        return $this->productModel->deleteProduct($id);
     }
 }
 ?>
