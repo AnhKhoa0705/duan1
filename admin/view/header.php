@@ -23,7 +23,7 @@
                 <a href="../../admin/index.php" class="flex items-center p-4 hover:bg-gray-700 <?php echo basename($_SERVER['PHP_SELF']) == 'dashboard.php' ? 'bg-gray-700' : ''; ?>">
                     <i class="fas fa-home mr-3"></i> Trang chủ
                 </a>
-                <a href="../../admin/view/categories.php" class="flex items-center p-4 hover:bg-gray-700 <?php echo basename($_SERVER['PHP_SELF']) == 'categories.php' ? 'bg-gray-700' : ''; ?>">
+                <a href="index.php?action=categories" class="flex items-center p-4 hover:bg-gray-700 <?php echo basename($_SERVER['PHP_SELF']) == 'categories.php' ? 'bg-gray-700' : ''; ?>">
                     <i class="fas fa-list mr-3"></i> Danh mục
                 </a>
                 <a href="../../admin/view/products.php" class="flex items-center p-4 hover:bg-gray-700 <?php echo basename($_SERVER['PHP_SELF']) == 'products.php' ? 'bg-gray-700' : ''; ?>">
