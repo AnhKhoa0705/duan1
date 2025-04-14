@@ -1,30 +1,31 @@
-<!-- view/admin/categories.php -->
-<?php include 'header.php'; ?>
-
-<main class="flex-1 p-6">
-    <div class="bg-white p-6 rounded-lg shadow">
-        <h2 class="text-xl font-semibold mb-4">Danh sách danh mục</h2>
-        <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mb-4 inline-block">Thêm danh mục</a>
-        <table class="w-full text-left">
-            <thead>
+<?php
+require_once '../config/database.php';
+require_once '../admin/model/category_model.php';
+$conn = (new Database())->getConnection();
+$categories = getAllCategories($conn);
+?>
+<main class="p-6">
+    <a href="index.php?action=add_category" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 inline-block">Thêm danh mục</a>
+    <table class="w-full border">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên danh mục</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($categories as $cat): ?>
                 <tr class="border-b">
-                    <th class="p-3">ID</th>
-                    <th class="p-3">Tên danh mục</th>
-                    <th class="p-3">Hành động</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="border-b hover:bg-gray-50">
-                    <td class="p-3">1</td>
-                    <td class="p-3">Danh mục A</td>
-                    <td class="p-3">
-                        <a href="#" class="text-blue-500 hover:underline mr-2">Sửa</a>
-                        <a href="#" class="text-red-500 hover:underline">Xóa</a>
+                    <td class="p-2"><?= $cat['ID'] ?></td>
+                    <td class="p-2"><?= $cat['Name'] ?></td>
+                    <td class="p-2">
+                    <a href="index.php?action=edit_category&id=<?= $cat['ID'] ?>" class="text-blue-500">Sửa</a> | 
+                    <a href="controller/category_controller.php?action=delete&id=<?= $cat['ID'] ?>" class="text-red-500" onclick="return confirm('Xóa?')">Xóa</a>
                     </td>
                 </tr>
-            </tbody>
-        </table>
-    </div>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 </main>
-
 <?php include 'footer.php'; ?>
