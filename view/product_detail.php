@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . "/header.php";
-require_once __DIR__ . "../../controller/detailController.php";
+require_once __DIR__ . "/../controller/detailController.php";
 
 // Kiểm tra ID sản phẩm từ URL
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
@@ -8,6 +8,7 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 }
 
 $productID = intval($_GET['id']);
+$productModel = new ProductDetailModel();
 $productDetail = $productModel->getProductDetail($productID);
 
 // Với PDO, $productDetail là mảng, không phải object
@@ -16,25 +17,21 @@ if (!$productDetail || count($productDetail) === 0) {
 }
 
 $row = $productDetail[0]; // Lấy dòng đầu tiên
+
+// Xử lý đường dẫn ảnh
+$imageFile = __DIR__ . "/../public/img/" . $row['Image_URL']; // Đường dẫn vật lý để kiểm tra
+$imageURL = "/DA1/public/img/" . $row['Image_URL'];           // Đường dẫn cho trình duyệt
+
+if (!empty($row['Image_URL']) && file_exists($imageFile)) {
+    $imageSrc = $imageURL;
+} else {
+    $imageSrc = "/DA1/public/img/default.jpg"; // fallback nếu không có ảnh
+}
 ?>
 
 <body class="bg-gray-100 text-gray-900">
-    <!-- PRODUCT DETAIL -->
     <section class="container mx-auto mt-24 px-6">
         <div class="bg-white shadow-lg rounded-lg flex flex-col md:flex-row p-8">
-
-            <!-- Hình ảnh sản phẩm -->
-            <?php
-            $imagePath = "../public/img/" . $row['Image_URL'];
-
-            // Kiểm tra nếu ảnh có trong thư mục public/img/
-            if (file_exists($imagePath) && is_file($imagePath)) {
-                $imageSrc = $imagePath;
-            } else {
-                // Nếu không có ảnh trong public/img/, sử dụng đường dẫn URL
-                $imageSrc = htmlspecialchars($row['Image_URL']);
-            }
-            ?>
 
             <!-- Hình ảnh sản phẩm -->
             <div class="w-full md:w-1/2 flex justify-center">
@@ -42,8 +39,6 @@ $row = $productDetail[0]; // Lấy dòng đầu tiên
                     alt="<?= htmlspecialchars($row['Name']); ?>"
                     class="rounded-lg w-96 transform transition duration-300 hover:scale-105">
             </div>
-
-
 
             <!-- Thông tin sản phẩm -->
             <div class="w-full md:w-1/2 pl-8">
@@ -82,10 +77,9 @@ $row = $productDetail[0]; // Lấy dòng đầu tiên
         </div>
     </section>
 
-    <!-- FOOTER -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </body>
-
 </html>
+
 <?php require_once __DIR__ . "/footer.php"; ?>
