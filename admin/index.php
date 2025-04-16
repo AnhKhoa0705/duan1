@@ -22,8 +22,11 @@ if ($action === 'home') {
 } elseif ($action === 'add_product') {
     include '../admin/view/add_product.php';
 
-} elseif ($action === 'edit_product' && isset($_GET['id'])) {
-    include '../admin/view/edit_product.php';
+} elseif ($action === 'orders') {
+    include '../admin/view/orders.php';
+    
+}elseif ($action === 'users') {
+    include '../admin/view/users.php';
     
 } else {
     echo "<main class='p-6'><h2>404 - Không tìm thấy trang</h2></main>";
